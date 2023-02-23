@@ -1,0 +1,485 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login {
+  color: white;
+  height: 100%;
+  background: transparent;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.login-wrapper {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+  background-color: #000;
+  color: white;
+}
+
+.login-background {
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/c2578c37-8569-4f88-b8f1-67a26a9ddcdd/f5f9d57b-8d7b-494f-a5ac-712f75c1217d/NG-en-20220725-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  object-fit: cover;
+  background-position: left;
+  display: block;
+  overflow: hidden;
+  min-height: 110vh;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  color: #fff;
+
+  position: absolute;
+}
+
+.concord-img {
+  min-height: 100%;
+  min-width: 100%;
+  border: 0;
+  color: #fff;
+}
+
+.login-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-bottom: transparent;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border: 0;
+  height: 90px;
+  z-index: 2;
+  color: #fff;
+}
+
+.login-header__link {
+  position: absolute;
+  top: 16px;
+  left: 58px;
+}
+
+.login-body {
+  margin: 0 auto;
+  background-color: transparent;
+  min-height: 100vh;
+  max-width: 450px;
+  color: #333;
+}
+
+.login-body::before {
+  content: "";
+  height: 91px;
+  display: block;
+}
+
+.login-content {
+  min-height: 660px;
+  min-width: 420px;
+  width: 100%;
+  margin-bottom: 90px;
+  padding: 60px 68px 0 40px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.login-form__main {
+  flex-grow: 1;
+  color: #333;
+}
+
+.login-form__main h1 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 28px 0;
+  padding: 0;
+}
+
+.login-form {
+  margin-bottom: 0;
+  color: #333;
+}
+
+.input-id {
+  padding-bottom: 16px;
+  max-width: 100%;
+  color: #333;
+  border-radius: 4px;
+
+  position: relative;
+}
+
+.text-field {
+  border: 0 !important;
+  border-radius: 4px;
+  color: #fff !important;
+  margin: 0;
+  height: 50px !important;
+  line-height: 50px;
+  padding: 16px 20px 0 !important;
+  background: #333 !important;
+  width: 100%;
+  box-shadow: none;
+  display: block;
+}
+
+.signin-label {
+  color: #8c8c8c;
+  /* transform: translateY(-40%); */
+  transition: font 0.1s ease, top 0.1s ease, transform 0.1s ease;
+
+  position: absolute;
+  top: -10% !important;
+  left: 20px;
+}
+
+.login-button {
+  border-radius: 4px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  max-width: 100%;
+  width: 100%;
+  background: #e50914;
+  display: inline-block;
+  line-height: 1em;
+  min-height: 37px;
+  min-width: 98px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  border: 0;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  overflow: hidden;
+}
+
+.login-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.login-button a:hover {
+  color: #fff;
+}
+
+.login-button a span {
+  padding: 16px;
+  width: 100%;
+  display: inline-block;
+}
+
+.login-form__help {
+  color: #8c8c8c;
+  display: flex;
+}
+
+.remember-me {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.remember-me label {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #333;
+  position: relative;
+}
+
+.remember-me input {
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.remember-me label::before {
+  content: "";
+  border: 0;
+  border-radius: 2px;
+  height: 16px;
+  width: 16px;
+  display: block;
+  color: #333;
+  background: #737373;
+
+  position: absolute;
+  left: -20px;
+  top: 2px;
+}
+
+.remember-me label::after {
+  content: "\e804";
+  border: 0;
+  border-radius: 2px;
+  height: 16px;
+  width: 16px;
+  /* display: block; */
+  color: #000;
+  font-size: 18px;
+  /* font-family: nf-icon; */
+  background: #737373;
+
+  position: absolute;
+  left: -21px;
+  top: 2px;
+}
+
+.remember-me span {
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.login-help {
+  padding-top: 2px;
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: transparent;
+  text-decoration: none;
+  margin-left: auto;
+}
+
+.login-help:hover {
+  text-decoration: underline;
+  color: #b3b3b3;
+}
+
+.login-form__other {
+  color: #333;
+  /* padding-bottom: 20px; */
+}
+
+.signup {
+  color: #737373;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.signup a {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.terms-of-use {
+  color: #8c8c8c;
+  font-size: 13px;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.term-button {
+  background-color: transparent;
+  border: none;
+  color: #0071eb;
+  display: inline-block;
+  -webkit-appearance: button;
+  text-transform: none;
+  overflow: visible;
+  text-align: left;
+}
+
+.term-button:hover {
+  text-decoration: underline;
+}
+
+.nothing {
+  opacity: 0;
+  transition: height 0.5s ease, opacity 0.5s ease;
+  visibility: hidden;
+  height: 40px;
+}
+
+@media (min-width: 740px) and (max-width: 1449px) {
+  .login-background {
+    background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/c2578c37-8569-4f88-b8f1-67a26a9ddcdd/f5f9d57b-8d7b-494f-a5ac-712f75c1217d/NG-en-20220725-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+    background-size: cover;
+    object-fit: cover;
+    background-position: left;
+    display: block;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    color: #fff;
+
+    position: absolute;
+  }
+
+  .login-header__link {
+    line-height: 90px;
+
+    position: absolute;
+    top: -5px;
+    left: 3%;
+  }
+
+  .login-header__link img {
+    height: 53px;
+  }
+
+  .login-body {
+    min-height: 100vh;
+    padding-bottom: 40px;
+  }
+}
+
+@media (min-width: 441px) and (max-width: 739px) {
+  .login-background {
+    background-image: none;
+  }
+
+  .login-header {
+    height: 75px;
+    position: unset;
+  }
+
+  .login-header__link {
+    line-height: 75px;
+    margin-left: 3%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .login-header__link img {
+    height: 53px;
+  }
+
+  .login-body {
+    min-height: unset;
+    max-width: unset;
+    padding: 0 5%;
+  }
+
+  .login-body::before {
+    content: unset;
+  }
+
+  .login-content {
+    padding: 20px 0 30px;
+    min-height: unset;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .login-form__main {
+    padding-bottom: 10%;
+  }
+
+  .login-form__main h1 {
+    margin-bottom: 28px;
+    font-size: 32px;
+  }
+
+  .signup {
+    margin-top: 20px;
+    margin-bottom: 4px;
+  }
+
+  .line {
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 25px;
+    border-color: #737373;
+    width: 100%;
+    height: 0;
+  }
+
+  .nfooter {
+    padding: 40px 0 50px;
+  }
+}
+
+@media (max-width: 440px) {
+  .login-background {
+    background-image: none;
+  }
+
+  .login-header {
+    height: 45px;
+    position: unset;
+  }
+
+  .login-header__link {
+    line-height: 45px;
+    margin-left: 3%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .login-header__link img {
+    height: 28px;
+  }
+
+  .login-form__main {
+    padding-bottom: 10%;
+  }
+
+  .login-body {
+    min-height: unset;
+    padding: 0 5%;
+  }
+
+  .login-body::before {
+    content: unset;
+  }
+
+  .login-content {
+    padding: 20px 0 30px;
+    min-height: unset;
+    min-width: unset;
+  }
+
+  .signup {
+    margin-top: 0;
+  }
+
+  .terms-of-use {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .nothing {
+    height: 0;
+  }
+
+  .line {
+    border-top: 1px solid #e5e5e5;
+    margin-bottom: 25px;
+    border-color: #737373;
+    width: 100%;
+    height: 0;
+  }
+
+  .nfooter {
+    padding: 40px 0 120px;
+  }
+}

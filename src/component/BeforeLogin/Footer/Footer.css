@@ -1,0 +1,121 @@
+.footer {
+  position: relative;
+  border-bottom: none;
+  padding-bottom: 0;
+  padding: 35px 45px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  color: #757575;
+}
+
+.site-footer__wrapper {
+  min-width: 190px;
+  padding-bottom: 20px;
+  width: 100%;
+
+  position: relative;
+}
+
+.site-footer {
+  color: #737373;
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 90%;
+  font-size: 1em;
+  max-width: 1000px;
+}
+
+.footer-header {
+  margin: 0 0 30px;
+  padding: 0;
+  font-size: 1em;
+  color: #737373;
+}
+
+.footer-header a {
+  font-size: 1em;
+  color: #737373;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.footer-links {
+  max-width: 1000px;
+  font-size: 13px;
+  padding: 0;
+  color: #737373;
+  margin: 0;
+}
+
+.footer-link__item {
+  display: inline-block;
+  list-style: none;
+  margin-left: 0;
+  box-sizing: border-box;
+  padding: 0 12px 0 0;
+  margin-bottom: 16px;
+  min-width: 100px;
+  width: 25%;
+  vertical-align: top;
+  font-size: 13px;
+  color: #737373;
+  cursor: pointer;
+}
+
+.footer-link__item a {
+  color: #737373;
+  text-decoration: none;
+  background-color: transparent;
+  list-style: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.footer-header a:link,
+.footer-header a:visited,
+.footer-link__item a:link,
+.footer-link__item a:visited {
+  text-decoration: none;
+  color: #737373;
+  background-color: transparent;
+  list-style: none;
+}
+
+.footer-header a:hover,
+.footer-link__item:hover {
+  text-decoration: underline;
+}
+
+.footer-country {
+  font-size: 13px;
+  margin-top: 24px;
+}
+
+@media (min-width: 550px) and (max-width: 740px) {
+  .footer {
+    padding: 40px 5% 50px;
+  }
+
+  .footer-link__item {
+    width: 33%;
+  }
+}
+
+@media (max-width: 549px) {
+  .footer {
+    padding: 40px 5% 20px;
+    margin-top: 0;
+    /* min-width: 190px; */
+    width: 100%;
+  }
+
+  .footer-link__item {
+    margin-bottom: 16px;
+    min-width: 100px;
+    padding: 0 12px 0 0;
+    vertical-align: top;
+    font-size: 13px;
+    width: 50%;
+  }
+}
