@@ -60,9 +60,9 @@ class Home extends Component {
                     membership.
                   </h3>
                   <div className="header__form-content">
-                    <div className="input-details form-floating">
+                    <div className="form-floating">
                       <input
-                        className="input form-control"
+                        className="form-control"
                         type="email"
                         placeholder="Email address"
                         id="email"
@@ -72,12 +72,10 @@ class Home extends Component {
                         Email address
                       </label>
                     </div>
-                    <div>
-                      <div className="label" htmlFor="email">
-                        <button className="" type="submit">
-                          <span>Get Started</span>
-                        </button>
-                      </div>
+                    <div className="label">
+                      <button className="" type="submit">
+                        <span>Get Started</span>
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -319,12 +317,11 @@ class Home extends Component {
                     membership.
                   </h3>
                   <div className="header__form-content">
-                    <div className="input-details form-floating">
+                    <div className="form-floating">
                       <input
-                        id="email"
                         className="form-control"
                         type="email"
-                        placeholder=""
+                        placeholder="Email address"
                         id="email"
                         name="email"
                       />
@@ -332,12 +329,10 @@ class Home extends Component {
                         Email address
                       </label>
                     </div>
-                    <div>
-                      <div className="label" htmlFor="email">
-                        <button className="" type="submit">
-                          <span>Get Started</span>
-                        </button>
-                      </div>
+                    <div className="label">
+                      <button className="" type="submit">
+                        <span>Get Started</span>
+                      </button>
                     </div>
                   </div>
                 </form>
