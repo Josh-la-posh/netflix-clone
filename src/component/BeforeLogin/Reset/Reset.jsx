@@ -1,39 +1,29 @@
 import React, { useState, useEffect } from "react";
-// import {
-//   auth,
-//   loginWithEmailAndPassword,
-//   signInWithGoogle,
-// } from "../../../firebase";
+// import { auth, sendPasswordReset } from "../../../firebase";
 // import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import "./SignIn.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../SignIn/SignIn.css";
 
-function SignIn() {
+function Reset() {
   const [isLearn, setIsLearn] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   // const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // useEffect(() => {
   //   if (loading) {
-  //     <h1>Loading ...</h1>
+  //     <h1>Loading ...</h1>;
   //     return;
   //   }
   //   if (user) navigate("/movie");
-
-  // }, [user, loading]
-  // );
-
-  function handleSubmit() {
-    if (email && password) navigate("/movie")
-  }
+  // }, [user, loading]);
 
   const LearnMore = (e) => {
     setIsLearn(!isLearn);
     var learn = e.target;
 
-    if (e.target.lastChild.textContent == "Learn more.") {
+    if (e.target.lastChild.textContent == "  Learn more.") {
+
       learn.outerHTML =
         "<br /><br /><div>The information collected by Google reCAPTCHA is subject to the Google <a target='_blank' href='https://policies.google.com/privacy'> Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</div>";
     }
@@ -57,8 +47,8 @@ function SignIn() {
         <div className="login-body">
           <div className="login-content">
             <div className="login-form__main">
-              <h1>Sign In</h1>
-              <form onSubmit={handleSubmit} className="login-form">
+              <h1>Reset Password</h1>
+              <form className="login-form">
                 <div className="input-id form-floating">
                   <input
                     type="email"
@@ -71,59 +61,22 @@ function SignIn() {
                     required
                   />
                   <label className="signin-label" htmlFor="loginName">
-                    Email or phone number
-                  </label>
-                </div>
-                <div className="input-id form-floating">
-                  <input
-                    type="password"
-                    id="pass"
-                    name="pass"
-                    className="form-control text-field"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                  />
-                  <label className="signin-label" htmlFor="pass">
-                    Password
+                    E-mail Address
                   </label>
                 </div>
                 <button
                   className="login-button"
                   type="submit"
-                  // onClick={() => loginWithEmailAndPassword(email, password)}
+                  // onClick={() => sendPasswordReset(email)}
                 >
-                  {/* <Link to="/movie"> */}
-                  <span>Sign In</span>
-                  {/* </Link> */}
+                  <span>Send password reset email</span>
                 </button>
-                <button
-                  className="login-button"
-                  style={{ backgroundColor: "blue", marginTop: "unset" }}
-                  target="_blank"
-                  // onClick={signInWithGoogle}
-                >
-                  Login with Google
-                </button>
-
-                <div className="login-form__help">
-                  <div className="remember-me">
-                    <input type="checkbox" name="rememberMe" />
-                    <label className="" htmlFor="rememberMe">
-                      <span>Remember me</span>
-                    </label>
-                  </div>
-                  <Link to="/reset" className="login-help">
-                    Forgot Password
-                  </Link>
-                </div>
               </form>
             </div>
             <div className="login-form__other">
               <div className="signup">
                 New to Netflix?
-                <Link to="/register"> Sign up now</Link>.
+                <Link to="/signin"> Sign Up Now</Link>.
               </div>
               <div className="terms-of-use">
                 <p>
@@ -174,4 +127,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Reset;

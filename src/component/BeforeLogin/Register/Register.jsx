@@ -2,38 +2,45 @@ import React, { useState, useEffect } from "react";
 // import {
 //   auth,
 //   loginWithEmailAndPassword,
+//   registeringWithEmailAndPassword,
 //   signInWithGoogle,
 // } from "../../../firebase";
 // import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import "./SignIn.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../SignIn/SignIn.css";
+// import { createBrowserHistory } from "history";
 
-function SignIn() {
+function Register() {
   const [isLearn, setIsLearn] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
+  // const [user, loading, error] = useAuthState(auth);
+  // const history = createBrowserHistory()
+  // const register = () => {
+  //     registeringWithEmailAndPassword(name, email, password);
+  // };
 
   // useEffect(() => {
   //   if (loading) {
   //     <h1>Loading ...</h1>
   //     return;
   //   }
-  //   if (user) navigate("/movie");
-
+  //   if (user) history.push("/movie");
   // }, [user, loading]
   // );
 
+
   function handleSubmit() {
-    if (email && password) navigate("/movie")
+    if (name && email && password) navigate("/movie")
   }
 
   const LearnMore = (e) => {
     setIsLearn(!isLearn);
     var learn = e.target;
 
-    if (e.target.lastChild.textContent == "Learn more.") {
+    if (e.target.lastChild.textContent == "  Learn more.") {
       learn.outerHTML =
         "<br /><br /><div>The information collected by Google reCAPTCHA is subject to the Google <a target='_blank' href='https://policies.google.com/privacy'> Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</div>";
     }
@@ -57,8 +64,25 @@ function SignIn() {
         <div className="login-body">
           <div className="login-content">
             <div className="login-form__main">
-              <h1>Sign In</h1>
+              <h1>Sign Up</h1>
               <form onSubmit={handleSubmit} className="login-form">
+                <div className="input-id form-floating">
+                  <input
+                    type="text"
+                    id="userName"
+                    name="userName"
+                    className="text-field form-control"
+                    placeholder="UserName"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    minLength="3"
+                    maxLength="8"
+                  />
+                  <label className="signin-label" htmlFor="userName">
+                    Username
+                  </label>
+                </div>
                 <div className="input-id form-floating">
                   <input
                     type="email"
@@ -84,18 +108,15 @@ function SignIn() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    minLength="6"
                   />
                   <label className="signin-label" htmlFor="pass">
                     Password
                   </label>
                 </div>
-                <button
-                  className="login-button"
-                  type="submit"
-                  // onClick={() => loginWithEmailAndPassword(email, password)}
-                >
+                <button className="login-button" type="submit">
                   {/* <Link to="/movie"> */}
-                  <span>Sign In</span>
+                    <span>Sign Up</span>
                   {/* </Link> */}
                 </button>
                 <button
@@ -104,7 +125,7 @@ function SignIn() {
                   target="_blank"
                   // onClick={signInWithGoogle}
                 >
-                  Login with Google
+                  Sign Up with Google
                 </button>
 
                 <div className="login-form__help">
@@ -114,16 +135,16 @@ function SignIn() {
                       <span>Remember me</span>
                     </label>
                   </div>
-                  <Link to="/reset" className="login-help">
-                    Forgot Password
+                  <Link to="/" className="login-help">
+                    Need Help
                   </Link>
                 </div>
               </form>
             </div>
             <div className="login-form__other">
               <div className="signup">
-                New to Netflix?
-                <Link to="/register"> Sign up now</Link>.
+                Already have an account?
+                <Link to="/signin"> Sign In</Link>.
               </div>
               <div className="terms-of-use">
                 <p>
@@ -174,4 +195,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Register;

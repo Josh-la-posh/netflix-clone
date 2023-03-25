@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AfterLoginDisplay from "./AfterLoginDisplay/AfterLoginDisplay";
 
-class BeforeLogin extends Component {
+class AfterLogin extends Component {
   render() {
     return (
       <div>
@@ -15,4 +15,4 @@ class BeforeLogin extends Component {
   }
 }
 
-export default BeforeLogin;
+export default AfterLogin;

@@ -1,0 +1,22 @@
+[debug] [2023-03-25T21:14:04.857Z] ----------------------------------------------------------------------
+[debug] [2023-03-25T21:14:04.859Z] Command:       /usr/bin/node /usr/bin/firebase init
+[debug] [2023-03-25T21:14:04.860Z] CLI Version:   11.24.0
+[debug] [2023-03-25T21:14:04.860Z] Platform:      linux
+[debug] [2023-03-25T21:14:04.860Z] Node Version:  v17.8.0
+[debug] [2023-03-25T21:14:04.863Z] Time:          Sat Mar 25 2023 22:14:04 GMT+0100 (West Africa Standard Time)
+[debug] [2023-03-25T21:14:04.864Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-25T21:14:04.867Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-03-25T21:14:04.978Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-25T21:14:04.979Z] > authorizing via signed-in user (joshuamayowa73@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/fajobi/My Projects/React/Incomplete/netflix-clone
+
