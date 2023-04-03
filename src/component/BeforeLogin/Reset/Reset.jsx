@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
-// import { auth, sendPasswordReset } from "../../../firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../SignIn/SignIn.css";
 
 function Reset() {
   const [isLearn, setIsLearn] = useState(false);
   const [email, setEmail] = useState("");
-  // const [user, loading, error] = useAuthState(auth);
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     <h1>Loading ...</h1>;
-  //     return;
-  //   }
-  //   if (user) navigate("/movie");
-  // }, [user, loading]);
 
   const LearnMore = (e) => {
     setIsLearn(!isLearn);
@@ -67,7 +55,6 @@ function Reset() {
                 <button
                   className="login-button"
                   type="submit"
-                  // onClick={() => sendPasswordReset(email)}
                 >
                   <span>Send password reset email</span>
                 </button>

@@ -1,21 +1,12 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // isFaqOpen: false
-    };
     this.handleFaq = this.handleFaq.bind(this);
   }
-
-  // toggleFaq () {
-  //     this.setState({
-  //         isFaqOpen : !this.state.isFaqOpen
-  //     })
-  // }
 
   handleFaq(e) {
     e.preventDefault();

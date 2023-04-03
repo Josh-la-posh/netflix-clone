@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home/HomePage";
 import SignIn from "./SignIn/SignIn";
 import Register from "./Register/Register";
 import Reset from "./Reset/Reset";
-import Dashboard from "./Dashboard/Dashboard";
 
 class BeforeLogin extends Component {
   render() {
@@ -15,7 +14,6 @@ class BeforeLogin extends Component {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           <Route path="/" element={<Navigate replace to="/home" />} />
         </Routes>
       </div>

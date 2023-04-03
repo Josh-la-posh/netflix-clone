@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
-// import {
-//   auth,
-//   loginWithEmailAndPassword,
-//   registeringWithEmailAndPassword,
-//   signInWithGoogle,
-// } from "../../../firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../SignIn/SignIn.css";
-// import { createBrowserHistory } from "history";
 
 function Register() {
   const [isLearn, setIsLearn] = useState(false);
@@ -16,21 +8,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const [user, loading, error] = useAuthState(auth);
-  // const history = createBrowserHistory()
-  // const register = () => {
-  //     registeringWithEmailAndPassword(name, email, password);
-  // };
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     <h1>Loading ...</h1>
-  //     return;
-  //   }
-  //   if (user) history.push("/movie");
-  // }, [user, loading]
-  // );
-
 
   function handleSubmit() {
     if (name && email && password) navigate("/movie")
@@ -115,15 +92,12 @@ function Register() {
                   </label>
                 </div>
                 <button className="login-button" type="submit">
-                  {/* <Link to="/movie"> */}
                     <span>Sign Up</span>
-                  {/* </Link> */}
                 </button>
                 <button
                   className="login-button"
                   style={{ backgroundColor: "blue", marginTop: "unset" }}
                   target="_blank"
-                  // onClick={signInWithGoogle}
                 >
                   Sign Up with Google
                 </button>

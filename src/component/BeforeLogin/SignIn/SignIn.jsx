@@ -1,29 +1,12 @@
-import React, { useState, useEffect } from "react";
-// import {
-//   auth,
-//   loginWithEmailAndPassword,
-//   signInWithGoogle,
-// } from "../../../firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.css";
 
 function SignIn() {
   const [isLearn, setIsLearn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     <h1>Loading ...</h1>
-  //     return;
-  //   }
-  //   if (user) navigate("/movie");
-
-  // }, [user, loading]
-  // );
 
   function handleSubmit() {
     if (email && password) navigate("/movie")
@@ -92,17 +75,13 @@ function SignIn() {
                 <button
                   className="login-button"
                   type="submit"
-                  // onClick={() => loginWithEmailAndPassword(email, password)}
                 >
-                  {/* <Link to="/movie"> */}
                   <span>Sign In</span>
-                  {/* </Link> */}
                 </button>
                 <button
                   className="login-button"
                   style={{ backgroundColor: "blue", marginTop: "unset" }}
                   target="_blank"
-                  // onClick={signInWithGoogle}
                 >
                   Login with Google
                 </button>
