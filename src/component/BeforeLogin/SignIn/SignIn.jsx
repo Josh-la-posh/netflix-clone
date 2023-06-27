@@ -1,22 +1,26 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignIn.css";
 
 function SignIn() {
+  const { login, userData } = useContext(AuthContext);
   const [isLearn, setIsLearn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleSubmit() {
-    if (email && password) navigate("/movie")
+  function handleSubmit(e) {
+    e.preventDefault();
+    login(email, password);
+    userData !== null && navigate("/movie");
   }
 
   const LearnMore = (e) => {
     setIsLearn(!isLearn);
     var learn = e.target;
 
-    if (e.target.lastChild.textContent == "Learn more.") {
+    if (e.target.lastChild.textContent === "Learn more.") {
       learn.outerHTML =
         "<br /><br /><div>The information collected by Google reCAPTCHA is subject to the Google <a target='_blank' href='https://policies.google.com/privacy'> Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</div>";
     }
@@ -72,10 +76,7 @@ function SignIn() {
                     Password
                   </label>
                 </div>
-                <button
-                  className="login-button"
-                  type="submit"
-                >
+                <button className="login-button" type="submit">
                   <span>Sign In</span>
                 </button>
                 <button

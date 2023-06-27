@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../config/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import "../SignIn/SignIn.css";
 
@@ -9,15 +11,32 @@ function Register() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleSubmit() {
-    if (name && email && password) navigate("/movie")
+  function handleSubmit(e) {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        user && navigate("/signin");
+        setName("");
+        setEmail("");
+        setPassword("");
+        console.log(user.email);
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+
+    // if (name && email && password) navigate("/movie");
   }
 
   const LearnMore = (e) => {
     setIsLearn(!isLearn);
     var learn = e.target;
 
-    if (e.target.lastChild.textContent == "  Learn more.") {
+    if (e.target.lastChild.textContent === "  Learn more.") {
       learn.outerHTML =
         "<br /><br /><div>The information collected by Google reCAPTCHA is subject to the Google <a target='_blank' href='https://policies.google.com/privacy'> Privacy Policy</a> and <a href='https://policies.google.com/terms' target='_blank'>Terms of Service</a>, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</div>";
     }
@@ -92,7 +111,7 @@ function Register() {
                   </label>
                 </div>
                 <button className="login-button" type="submit">
-                    <span>Sign Up</span>
+                  <span>Sign Up</span>
                 </button>
                 <button
                   className="login-button"
@@ -140,26 +159,26 @@ function Register() {
           <div className="line"></div>
           <div className="site-footer">
             <p className="footer-header">
-              <a>Questions? Contact us.</a>
+              <a href="/#">Questions? Contact us.</a>
             </p>
             <ul className="footer-links">
               <li className="footer-link__item">
-                <a href="">FAQ</a>
+                <a href="/#">FAQ</a>
               </li>
               <li className="footer-link__item">
-                <a href="">Help Center</a>
+                <a href="/#">Help Center</a>
               </li>
               <li className="footer-link__item">
-                <a href="">Terms of Use</a>
+                <a href="/#">Terms of Use</a>
               </li>
               <li className="footer-link__item">
-                <a href="">Privacy</a>
+                <a href="/#">Privacy</a>
               </li>
               <li className="footer-link__item">
-                <a href="">Cookie Preferences</a>
+                <a href="/#">Cookie Preferences</a>
               </li>
               <li className="footer-link__item">
-                <a href="">Corporate Information</a>
+                <a href="/#">Corporate Information</a>
               </li>
             </ul>
           </div>

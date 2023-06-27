@@ -5,12 +5,10 @@ import AfterLoginDisplay from "./AfterLoginDisplay/AfterLoginDisplay";
 class AfterLogin extends Component {
   render() {
     return (
-      <div>
-        <Routes>
-          <Route path="/movie" element={<AfterLoginDisplay />} />
-          <Route path="/movie" element={<Navigate replace to="/movie" />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/movie" element={<AfterLoginDisplay />} />
+        <Route path="/movie" element={<Navigate replace to="/movie" />} />
+      </Routes>
     );
   }
 }

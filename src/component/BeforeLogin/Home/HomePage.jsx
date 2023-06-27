@@ -1,10 +1,15 @@
 import { Component } from "react";
+import { Data } from "../../../Data/data";
 import Footer from "../Footer/Footer";
 import "./HomePage.css";
 
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      open: false,
+      index: 0,
+    };
     this.handleFaq = this.handleFaq.bind(this);
   }
 
@@ -179,132 +184,42 @@ class Home extends Component {
                 <h1 className="story-card__faq">Frequently Asked Questions</h1>
 
                 <ul className="faq-list">
-                  <li
-                    className="faq-list__item"
-                    onClick={(e) => this.handleFaq(e)}
-                  >
-                    <button className="faq-question">
-                      What is Netflix?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        Netflix is a streaming service that offers a wide
-                        variety of award-winning TV shows, movies, anime,
-                        documentaries, and more on thousands of
-                        internet-connected devices.
-                        <br />
-                        <br />
-                        You can watch as much as you want, whenever you want
-                        without a single commercial – all for one low monthly
-                        price. There's always something new to discover and new
-                        TV shows and movies are added every week!
-                      </span>
-                    </div>
-                  </li>
-                  <li className="faq-list__item">
-                    <button
-                      className="faq-question"
-                      onClick={(e) => this.handleFaq(e)}
-                    >
-                      How much does Netflix cost?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        Watch Netflix on your smartphone, tablet, Smart TV,
-                        laptop, or streaming device, all for one fixed monthly
-                        fee. Plans range from ₦1,200 to ₦4,400 a month. No extra
-                        costs, no contracts.
-                      </span>
-                    </div>
-                  </li>
-                  <li className="faq-list__item">
-                    <button
-                      className="faq-question"
-                      onClick={(e) => this.handleFaq(e)}
-                    >
-                      What can I watch?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        Watch anywhere, anytime. Sign in with your Netflix
-                        account to watch instantly on the web at netflix.com
-                        from your personal computer or on any internet-connected
-                        device that offers the Netflix app, including smart TVs,
-                        smartphones, tablets, streaming media players and game
-                        consoles.
-                        <br />
-                        <br />
-                        ou can also download your favorite shows with the iOS,
-                        Android, or Windows 10 app. Use downloads to watch while
-                        you're on the go and without an internet connection.
-                        Take Netflix with you anywhere.
-                      </span>
-                    </div>
-                  </li>
-                  <li className="faq-list__item">
-                    <button
-                      className="faq-question"
-                      onClick={(e) => this.handleFaq(e)}
-                    >
-                      How do I cancel?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        Netflix is flexible. There are no pesky contracts and no
-                        commitments. You can easily cancel your account online
-                        in two clicks. There are no cancellation fees – start or
-                        stop your account anytime.
-                      </span>
-                    </div>
-                  </li>
-                  <li className="faq-list__item">
-                    <button
-                      className="faq-question"
-                      onClick={(e) => this.handleFaq(e)}
-                    >
-                      What can I watch on Netflix?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        Netflix has an extensive library of feature films,
-                        documentaries, TV shows, anime, award-winning Netflix
-                        originals, and more. Watch as much as you want, anytime
-                        you want.
-                      </span>
-                    </div>
-                  </li>
-                  <li className="faq-list__item">
-                    <button
-                      className="faq-question"
-                      onClick={(e) => this.handleFaq(e)}
-                    >
-                      Is Netflix good for kids?
-                      <svg className="svg-icon svg-closed"></svg>
-                    </button>
-                    <div className="faq-answer closed">
-                      <span>
-                        The Netflix Kids experience is included in your
-                        membership to give parents control while kids enjoy
-                        family-friendly TV shows and movies in their own space.
-                        <br />
-                        <br />
-                        Kids profiles come with PIN-protected parental controls
-                        that let you restrict the maturity rating of content
-                        kids can watch and block specific titles you don’t want
-                        kids to see.
-                      </span>
-                    </div>
-                  </li>
+                  {Data.map((data, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className="faq-list__item"
+                        onClick={(e) => this.handleFaq(e)}
+                      >
+                        <button
+                          className="faq-question"
+                          onClick={() => {
+                            this.setState({
+                              open: !this.state.open,
+                              index: index,
+                            });
+                          }}
+                        >
+                          {data.title}
+                          {/* <svg className="svg-icon svg-closed"></svg> */}
+                          {(index !== this.state.index || !this.state.open) && (
+                            <span className="svg-icon">+</span>
+                          )}
+                          {index === this.state.index && this.state.open && (
+                            <span className="svg-icon">-</span>
+                          )}
+                        </button>
+                        <div className="faq-answer closed">
+                          <span>{data.desc}</span>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <form action="" className="header__form cta-form">
                   <h3>
-                    Ready to warch? Enter your email to create or restart your
+                    Ready to watch? Enter your email to create or restart your
                     membership.
                   </h3>
                   <div className="header__form-content">

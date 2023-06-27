@@ -1,8 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import HeaderComponent from "../Header/Header";
 import "./Nav.css";
 
 function Nav() {
+  const { logout } = useContext(AuthContext);
   const [show, handleShow] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    logout();
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -23,11 +31,14 @@ function Nav() {
           alt="Netflix Logo"
           className="nav__logo"
         />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-          alt="Netlix Avatar"
-          className="nav__avatar"
-        />
+        <HeaderComponent />
+        <button className="" onClick={handleSubmit}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+            alt="Netlix Avatar"
+            className="nav__avatar"
+          />
+        </button>
       </div>
     </div>
   );

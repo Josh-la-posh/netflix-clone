@@ -431,33 +431,22 @@ main {
   width: 100%;
   background: #303030;
   color: white;
-  display: block;
   -webkit-appearance: button;
-  text-align: left;
-  text-transform: none;
-  overflow: visible;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .svg-icon {
-  fill: #fff;
-  height: 1em;
-  width: 1em;
-  overflow: hidden;
-  position: absolute;
-  right: 1em;
-  top: 50%;
-}
-
-.svg-closed {
-  transform: translateY(-50%) rotate(-45deg);
-  border-radius: 50px;
-  z-index: 5;
-  background-color: black;
-}
-
-.svg-open {
-  transform: translateY(-50%);
+  color: #fff;
+  background: #000;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 }
 
 .faq-answer {
